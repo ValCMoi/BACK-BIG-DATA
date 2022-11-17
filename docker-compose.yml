@@ -1,0 +1,34 @@
+version: '3'
+ 
+services:
+  db:
+    image: mysql:${MYSQL_VERSION}
+    container_name: MYSQL-DATABASE-${PROJECT_NAME}
+    hostname: MYSQL-DATABASE-${PROJECT_NAME}
+    environment:
+      MYSQL_DATABASE: ${Db_NAME}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_USER_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "${MYSQL_PORT_EXPOSE}:3306"
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: PHP-MY-ADMIN-${PROJECT_NAME}
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    ports:
+      - ${MY_ADMIN_PORT_EXPOSE}:80
+  api:
+    build:
+      dockerfile: ./Nest.dockerfile
+      context: .
+    volumes:
+      - ./backend:/usr/src/app/
+    command: npm run start:dev
+    ports:
+      - ${NEST_PORT_EXPOSE}:${NEST_PORT_INIT}
