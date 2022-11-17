@@ -13,6 +13,7 @@ const typeorm_1 = require("@nestjs/typeorm");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const client_module_1 = require("./client/client.module");
+const product_module_1 = require("./product/product.module");
 const dotenv = require('dotenv');
 dotenv.config();
 const configConnectionDB = {
@@ -35,6 +36,7 @@ AppModule = __decorate([
             config_1.ConfigModule.forRoot({ isGlobal: true }),
             typeorm_1.TypeOrmModule.forRoot(configConnectionDB),
             client_module_1.ClientModule,
+            product_module_1.ProductModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

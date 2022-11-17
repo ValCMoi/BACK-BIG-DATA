@@ -6,6 +6,7 @@ import { TypeOrmModule, TypeOrmModuleOptions} from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ClientModule } from './client/client.module';
+import { ProductModule } from './product/product.module';
 
 const dotenv = require('dotenv');
 dotenv.config()
@@ -29,6 +30,7 @@ console.table(configConnectionDB)
     ConfigModule.forRoot({isGlobal:true}),
     TypeOrmModule.forRoot(configConnectionDB),
     ClientModule,
+    ProductModule,
     ],
   controllers: [AppController],
   providers: [AppService],

@@ -10,7 +10,8 @@ const randomEmail = require('random-email')
 const crypt = require('../../utils/crypt/cryptDecrypt.js')
 @Injectable()
 export class ClientService {
-  constructor(@InjectRepository(Client)
+  constructor(
+  @InjectRepository(Client)
   private readonly repositoryClient: Repository<Client>){}
 
   async create(createClientDto: CreateClientDto): Promise<Observable<Client>>{
