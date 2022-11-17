@@ -28,13 +28,13 @@ let RateController = class RateController {
         return this.rateService.findAll();
     }
     findOne(id) {
-        return this.rateService.findOne(+id);
+        return this.rateService.findOne(id);
     }
     update(id, updateRateDto) {
         return this.rateService.update(+id, updateRateDto);
     }
     remove(id) {
-        return this.rateService.remove(+id);
+        return this.rateService.remove(id);
     }
 };
 __decorate([

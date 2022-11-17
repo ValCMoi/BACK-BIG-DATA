@@ -38,6 +38,7 @@ export class RateService {
   update(id: number, updateRateDto: UpdateRateDto) {
     return `This action updates a #${id} rate`;
   }
+  
   async remove(idInput: string) {
     const entityToDelete = await this.rateRepository.findOne({where: {id: idInput}})
     this.rateRepository.remove(entityToDelete)

@@ -19,7 +19,7 @@ export class RateController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.rateService.findOne(+id);
+    return this.rateService.findOne(id);
   }
 
   @Patch(':id')
@@ -29,6 +29,6 @@ export class RateController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.rateService.remove(+id);
+    return this.rateService.remove(id);
   }
 }
