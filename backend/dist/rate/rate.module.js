@@ -12,11 +12,12 @@ const rate_service_1 = require("./rate.service");
 const rate_controller_1 = require("./rate.controller");
 const typeorm_1 = require("@nestjs/typeorm");
 const rate_entity_1 = require("./entities/rate.entity");
+const client_entity_1 = require("../client/entities/client.entity");
 let RateModule = class RateModule {
 };
 RateModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forFeature([rate_entity_1.Rate])],
+        imports: [typeorm_1.TypeOrmModule.forFeature([rate_entity_1.Rate, client_entity_1.Client])],
         controllers: [rate_controller_1.RateController],
         providers: [rate_service_1.RateService]
     })

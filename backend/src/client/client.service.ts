@@ -16,10 +16,13 @@ export class ClientService {
 
   async create(createClientDto: CreateClientDto): Promise<Observable<Client>>{
        
+    const someRandomMail = randomEmail()
     const clientCreate : CreateClientDto = {
       id: createClientDto.id,
-      email: createClientDto.email ?? randomEmail(),
-      password: createClientDto.password ?? createClientDto.email ? crypt.encrypt(createClientDto.password) : crypt.encrypt(createClientDto.email)
+      email: createClientDto.email ?? someRandomMail,
+      password: createClientDto.password ? 
+                  crypt.encrypt(createClientDto.password):
+                  createClientDto.email ? crypt.encrypt(createClientDto.email) : crypt.encrypt(someRandomMail)
     }
 
     return from(this.repositoryClient.save(clientCreate));

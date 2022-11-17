@@ -1,4 +1,6 @@
+import { Client } from "src/client/entities/client.entity";
 export declare class Rate {
     readonly id: string;
-    readonly rateNumber: number;
+    rateNumber: number;
+    client: Client;
 }

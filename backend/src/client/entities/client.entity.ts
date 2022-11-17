@@ -1,4 +1,5 @@
-import { Column, Entity, Generated, PrimaryColumn } from "typeorm";
+import { Rate } from "src/rate/entities/rate.entity";
+import { Column, Entity, Generated, OneToMany, PrimaryColumn } from "typeorm";
 
 @Entity()
 export class Client {
@@ -10,4 +11,7 @@ export class Client {
 
     @Column({nullable:false})
     readonly password: string;
+
+    @OneToMany(() => Rate, (rate) => rate.id)
+    rates: Rate[]
 }

@@ -25,11 +25,14 @@ let ClientService = class ClientService {
         this.repositoryClient = repositoryClient;
     }
     async create(createClientDto) {
-        var _a, _b;
+        var _a;
+        const someRandomMail = randomEmail();
         const clientCreate = {
             id: createClientDto.id,
-            email: (_a = createClientDto.email) !== null && _a !== void 0 ? _a : randomEmail(),
-            password: ((_b = createClientDto.password) !== null && _b !== void 0 ? _b : createClientDto.email) ? crypt.encrypt(createClientDto.password) : crypt.encrypt(createClientDto.email)
+            email: (_a = createClientDto.email) !== null && _a !== void 0 ? _a : someRandomMail,
+            password: createClientDto.password ?
+                crypt.encrypt(createClientDto.password) :
+                createClientDto.email ? crypt.encrypt(createClientDto.email) : crypt.encrypt(someRandomMail)
         };
         return (0, rxjs_1.from)(this.repositoryClient.save(clientCreate));
     }
