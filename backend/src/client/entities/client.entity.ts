@@ -1,5 +1,5 @@
 import { Rate } from "src/rate/entities/rate.entity";
-import { Column, Entity, Generated, OneToMany, PrimaryColumn } from "typeorm";
+import { Column, Entity, Generated, JoinColumn, OneToMany, PrimaryColumn } from "typeorm";
 
 @Entity()
 export class Client {

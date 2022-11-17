@@ -1,4 +1,5 @@
-import { Column, Entity, Generated, PrimaryColumn } from "typeorm";
+import { Rate } from "src/rate/entities/rate.entity";
+import { Column, Entity, Generated, JoinColumn, OneToMany, PrimaryColumn } from "typeorm";
 
 @Entity()
 export class Product {
@@ -12,5 +13,6 @@ export class Product {
     @Column({nullable: false, type:"float"})
     readonly price: number;
     
-
+    @OneToMany(() => Rate, (rate: Rate) => rate.product)
+    rates: Rate[]
 }

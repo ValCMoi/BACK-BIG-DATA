@@ -26,7 +26,7 @@ let ProductService = class ProductService {
         return (0, rxjs_1.from)(this.productRepository.save(createProductDto));
     }
     findAll() {
-        return (0, rxjs_1.from)(this.productRepository.find());
+        return (0, rxjs_1.from)(this.productRepository.find({ relations: { rates: true } }));
     }
     findOne(idInput) {
         return (0, rxjs_1.from)(this.productRepository.findOne({ where: { id: idInput } }));

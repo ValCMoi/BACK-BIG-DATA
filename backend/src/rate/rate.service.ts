@@ -6,6 +6,7 @@ import { CreateRateDto } from './dto/create-rate.dto';
 import { UpdateRateDto } from './dto/update-rate.dto';
 import { Rate } from './entities/rate.entity';
 import {Observable, from} from 'rxjs'
+import { Product } from 'src/product/entities/product.entity';
 
 @Injectable()
 export class RateService {
@@ -14,21 +15,26 @@ export class RateService {
     @InjectRepository(Rate)
     private readonly rateRepository: Repository<Rate>,
     @InjectRepository(Client)
-    private readonly clientRepository: Repository<Client>
-  ){}
+    private readonly clientRepository: Repository<Client>,
+    @InjectRepository(Product)
+    private readonly productRepository: Repository<Product>
+    ){}
 
   async create(createRateDto: CreateRateDto): Promise<Observable<Rate>> {
+
     const theClient = await this.clientRepository.findOne({where:{id:createRateDto.clientId}})
+    const theProduct = await this.productRepository.findOne({where:{id:createRateDto.productId}})
 
     const newRate = new Rate()
     newRate.client = theClient
     newRate.rateNumber = createRateDto.rateNumber
+    newRate.product = theProduct
 
     return from(this.rateRepository.save(newRate))
   }
 
   findAll() {
-    return this.rateRepository.find({relations: {client: true}});
+    return this.rateRepository.find({relations: {client: true, product: true}});
   }
 
   findOne(idInput: string) {

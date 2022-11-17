@@ -19,7 +19,7 @@ export class ProductService {
   }
 
   findAll(): Observable<Product[]> {
-    return from(this.productRepository.find());
+    return from(this.productRepository.find({relations: {rates: true}}));
   }
 
   findOne(idInput: string): Observable<Product> {

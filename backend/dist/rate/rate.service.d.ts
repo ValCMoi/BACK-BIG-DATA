@@ -4,10 +4,12 @@ import { CreateRateDto } from './dto/create-rate.dto';
 import { UpdateRateDto } from './dto/update-rate.dto';
 import { Rate } from './entities/rate.entity';
 import { Observable } from 'rxjs';
+import { Product } from 'src/product/entities/product.entity';
 export declare class RateService {
     private readonly rateRepository;
     private readonly clientRepository;
-    constructor(rateRepository: Repository<Rate>, clientRepository: Repository<Client>);
+    private readonly productRepository;
+    constructor(rateRepository: Repository<Rate>, clientRepository: Repository<Client>, productRepository: Repository<Product>);
     create(createRateDto: CreateRateDto): Promise<Observable<Rate>>;
     findAll(): Promise<Rate[]>;
     findOne(idInput: string): Promise<Rate>;
