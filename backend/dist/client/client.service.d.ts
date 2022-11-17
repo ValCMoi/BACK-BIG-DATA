@@ -10,5 +10,5 @@ export declare class ClientService {
     findAll(): Observable<Client[]>;
     findOne(idInput: string): Observable<Client>;
     update(idInput: string, updateClientDto: UpdateClientDto): Observable<import("typeorm").UpdateResult>;
-    remove(idInput: string): string;
+    remove(idInput: string): Promise<string>;
 }

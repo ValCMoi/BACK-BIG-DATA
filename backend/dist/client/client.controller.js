@@ -31,10 +31,10 @@ let ClientController = class ClientController {
         return this.clientService.findOne(id);
     }
     update(id, updateClientDto) {
-        return this.clientService.update(+id, updateClientDto);
+        return this.clientService.update(id, updateClientDto);
     }
     remove(id) {
-        return this.clientService.remove(+id);
+        return this.clientService.remove(id);
     }
 };
 __decorate([

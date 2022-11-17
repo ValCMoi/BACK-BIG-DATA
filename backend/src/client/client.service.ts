@@ -36,9 +36,9 @@ export class ClientService {
     return from(this.repositoryClient.update(idInput, updateClientDto));
   }
 
-  remove(idInput: string) {
-    const entitiesToDelete = this.findOne(idInput)
-    this.repositoryClient.remove(entitiesToDelete[0])
+  async remove(idInput: string) {
+    const entityToDelete = await this.repositoryClient.findOne({where: {id: idInput}})
+    this.repositoryClient.remove(entityToDelete)
     return 'Delete successfull';
   }
 }

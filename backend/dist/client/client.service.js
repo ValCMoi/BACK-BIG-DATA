@@ -42,9 +42,9 @@ let ClientService = class ClientService {
     update(idInput, updateClientDto) {
         return (0, rxjs_1.from)(this.repositoryClient.update(idInput, updateClientDto));
     }
-    remove(idInput) {
-        const entitiesToDelete = this.findOne(idInput);
-        this.repositoryClient.remove(entitiesToDelete[0]);
+    async remove(idInput) {
+        const entityToDelete = await this.repositoryClient.findOne({ where: { id: idInput } });
+        this.repositoryClient.remove(entityToDelete);
         return 'Delete successfull';
     }
 };

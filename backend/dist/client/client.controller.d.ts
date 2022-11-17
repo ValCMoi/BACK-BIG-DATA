@@ -8,5 +8,5 @@ export declare class ClientController {
     findAll(): import("rxjs").Observable<import("./entities/client.entity").Client[]>;
     findOne(id: string): import("rxjs").Observable<import("./entities/client.entity").Client>;
     update(id: string, updateClientDto: UpdateClientDto): import("rxjs").Observable<import("typeorm").UpdateResult>;
-    remove(id: string): string;
+    remove(id: string): Promise<string>;
 }
