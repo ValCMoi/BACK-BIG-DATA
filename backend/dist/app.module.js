@@ -14,6 +14,7 @@ const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const client_module_1 = require("./client/client.module");
 const product_module_1 = require("./product/product.module");
+const rate_module_1 = require("./rate/rate.module");
 const dotenv = require('dotenv');
 dotenv.config();
 const configConnectionDB = {
@@ -37,6 +38,7 @@ AppModule = __decorate([
             typeorm_1.TypeOrmModule.forRoot(configConnectionDB),
             client_module_1.ClientModule,
             product_module_1.ProductModule,
+            rate_module_1.RateModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

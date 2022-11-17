@@ -7,6 +7,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ClientModule } from './client/client.module';
 import { ProductModule } from './product/product.module';
+import { RateModule } from './rate/rate.module';
 
 const dotenv = require('dotenv');
 dotenv.config()
@@ -31,6 +32,7 @@ console.table(configConnectionDB)
     TypeOrmModule.forRoot(configConnectionDB),
     ClientModule,
     ProductModule,
+    RateModule,
     ],
   controllers: [AppController],
   providers: [AppService],
