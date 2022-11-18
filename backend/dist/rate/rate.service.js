@@ -27,8 +27,8 @@ let RateService = class RateService {
         this.productRepository = productRepository;
     }
     async create(createRateDto) {
-        const theClient = await this.clientRepository.findOne({ where: { id: createRateDto.clientId } });
-        const theProduct = await this.productRepository.findOne({ where: { id: createRateDto.productId } });
+        const theClient = await this.clientRepository.findOne({ where: { id: createRateDto.client } });
+        const theProduct = await this.productRepository.findOne({ where: { id: createRateDto.product } });
         const newRate = new rate_entity_1.Rate();
         newRate.client = theClient;
         newRate.rateNumber = createRateDto.rateNumber;
@@ -39,10 +39,15 @@ let RateService = class RateService {
         return this.rateRepository.find({ relations: { client: true, product: true } });
     }
     findOne(idInput) {
-        return this.rateRepository.findOne({ where: { id: idInput }, relations: { client: true } });
+        return this.rateRepository.findOne({ where: { id: idInput }, relations: { client: true, product: true } });
     }
-    update(id, updateRateDto) {
-        return `This action updates a #${id} rate`;
+    async update(idInput, updateRateDto) {
+        const rateTochange = await this.findOne(idInput);
+        rateTochange.client = await this.clientRepository.findOne({ where: { id: updateRateDto.client } });
+        rateTochange.product = await this.productRepository.findOne({ where: { id: updateRateDto.product } });
+        rateTochange.rateNumber = updateRateDto.rateNumber;
+        const res = await (0, rxjs_1.from)(this.rateRepository.save(rateTochange));
+        return res;
     }
     async remove(idInput) {
         const entityToDelete = await this.rateRepository.findOne({ where: { id: idInput } });

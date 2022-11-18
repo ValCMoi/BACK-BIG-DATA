@@ -29,7 +29,7 @@ __decorate([
     __metadata("design:type", client_entity_1.Client)
 ], Rate.prototype, "client", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)(() => product_entity_1.Product, (product) => product.id),
+    (0, typeorm_1.ManyToOne)(() => product_entity_1.Product, (product) => product.rates),
     __metadata("design:type", product_entity_1.Product)
 ], Rate.prototype, "product", void 0);
 Rate = __decorate([

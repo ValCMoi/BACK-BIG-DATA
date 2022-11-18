@@ -7,6 +7,6 @@ export declare class RateController {
     create(createRateDto: CreateRateDto): Promise<import("rxjs").Observable<import("./entities/rate.entity").Rate>>;
     findAll(): Promise<import("./entities/rate.entity").Rate[]>;
     findOne(id: string): Promise<import("./entities/rate.entity").Rate>;
-    update(id: string, updateRateDto: UpdateRateDto): string;
+    update(id: string, updateRateDto: UpdateRateDto): Promise<import("rxjs").Observable<import("./entities/rate.entity").Rate>>;
     remove(id: string): Promise<string>;
 }

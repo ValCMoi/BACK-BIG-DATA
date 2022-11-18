@@ -13,6 +13,6 @@ export class Product {
     @Column({nullable: false, type:"float"})
     readonly price: number;
     
-    @OneToMany(() => Rate, (rate: Rate) => rate.product)
+    @OneToMany(() => Rate, (rate: Rate) => rate.product, {onDelete: 'CASCADE', onUpdate: 'CASCADE'})
     rates: Rate[]
 }

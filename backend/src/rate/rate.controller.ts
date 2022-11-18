@@ -24,7 +24,7 @@ export class RateController {
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateRateDto: UpdateRateDto) {
-    return this.rateService.update(+id, updateRateDto);
+    return this.rateService.update(id, updateRateDto);
   }
 
   @Delete(':id')

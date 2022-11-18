@@ -1,5 +1,6 @@
 export class CreateRateDto {
-    readonly rateNumber: number
-    readonly clientId: string
-    readonly productId: string
+    readonly id?:string
+    readonly rateNumber?: number
+    readonly client?: string
+    readonly product?: string
 }

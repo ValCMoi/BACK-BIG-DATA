@@ -28,7 +28,7 @@ __decorate([
     __metadata("design:type", Number)
 ], Product.prototype, "price", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(() => rate_entity_1.Rate, (rate) => rate.product),
+    (0, typeorm_1.OneToMany)(() => rate_entity_1.Rate, (rate) => rate.product, { onDelete: 'CASCADE', onUpdate: 'CASCADE' }),
     __metadata("design:type", Array)
 ], Product.prototype, "rates", void 0);
 Product = __decorate([

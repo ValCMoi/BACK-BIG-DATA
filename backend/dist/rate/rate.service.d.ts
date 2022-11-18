@@ -13,6 +13,6 @@ export declare class RateService {
     create(createRateDto: CreateRateDto): Promise<Observable<Rate>>;
     findAll(): Promise<Rate[]>;
     findOne(idInput: string): Promise<Rate>;
-    update(id: number, updateRateDto: UpdateRateDto): string;
+    update(idInput: string, updateRateDto: UpdateRateDto): Promise<Observable<Rate>>;
     remove(idInput: string): Promise<string>;
 }

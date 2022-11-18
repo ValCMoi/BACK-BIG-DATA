@@ -22,10 +22,11 @@ export class RateService {
 
   async create(createRateDto: CreateRateDto): Promise<Observable<Rate>> {
 
-    const theClient = await this.clientRepository.findOne({where:{id:createRateDto.clientId}})
-    const theProduct = await this.productRepository.findOne({where:{id:createRateDto.productId}})
+    const theClient = await this.clientRepository.findOne({where:{id:createRateDto.client}})
+    const theProduct = await this.productRepository.findOne({where:{id:createRateDto.product}})
 
     const newRate = new Rate()
+    
     newRate.client = theClient
     newRate.rateNumber = createRateDto.rateNumber
     newRate.product = theProduct
@@ -38,13 +39,23 @@ export class RateService {
   }
 
   findOne(idInput: string) {
-    return this.rateRepository.findOne({where: {id : idInput}, relations: {client: true}});
+    return this.rateRepository.findOne({where: {id : idInput}, relations: {client: true, product:true}});
   }
 
-  update(id: number, updateRateDto: UpdateRateDto) {
-    return `This action updates a #${id} rate`;
+  
+  async update(idInput: string, updateRateDto: UpdateRateDto) {   
+    
+    const rateTochange = await this.findOne(idInput)
+
+    rateTochange.client = await this.clientRepository.findOne({where:{id: updateRateDto.client}})
+    rateTochange.product = await this.productRepository.findOne({where:{id: updateRateDto.product}})
+    rateTochange.rateNumber = updateRateDto.rateNumber
+
+    const res = await from(this.rateRepository.save(rateTochange))
+    return res;
   }
   
+ 
   async remove(idInput: string) {
     const entityToDelete = await this.rateRepository.findOne({where: {id: idInput}})
     this.rateRepository.remove(entityToDelete)

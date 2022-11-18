@@ -39,8 +39,9 @@ let ClientService = class ClientService {
     findAll() {
         return (0, rxjs_1.from)(this.repositoryClient.find());
     }
-    findOne(idInput) {
-        return (0, rxjs_1.from)(this.repositoryClient.findOne({ where: { id: idInput } }));
+    async findOne(idInput) {
+        var _a;
+        return (_a = await (0, rxjs_1.from)(this.repositoryClient.findOne({ where: { id: idInput } }))) !== null && _a !== void 0 ? _a : null;
     }
     update(idInput, updateClientDto) {
         return (0, rxjs_1.from)(this.repositoryClient.update(idInput, updateClientDto));
