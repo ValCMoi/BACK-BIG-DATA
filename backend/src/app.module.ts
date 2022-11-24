@@ -8,6 +8,7 @@ import { AppService } from './app.service';
 import { ClientModule } from './client/client.module';
 import { ProductModule } from './product/product.module';
 import { RateModule } from './rate/rate.module';
+import { FamilleModule } from './famille/famille.module';
 
 const dotenv = require('dotenv');
 dotenv.config()
@@ -33,6 +34,7 @@ console.table(configConnectionDB)
     ClientModule,
     ProductModule,
     RateModule,
+    FamilleModule,
     ],
   controllers: [AppController],
   providers: [AppService],
