@@ -28,14 +28,17 @@ let FamilleService = class FamilleService {
     findAll() {
         return this.familleRepository.find();
     }
-    findOne(id) {
-        return `This action returns a #${id} famille`;
+    async findOne(idInput) {
+        var _a;
+        return (_a = await (0, rxjs_1.from)(this.familleRepository.findOne({ where: { id: idInput } }))) !== null && _a !== void 0 ? _a : null;
     }
     update(id, updateFamilleDto) {
         return `This action updates a #${id} famille`;
     }
-    remove(id) {
-        return `This action removes a #${id} famille`;
+    async remove(idInput) {
+        const entityToDelete = await this.familleRepository.findOne({ where: { id: idInput } });
+        this.familleRepository.remove(entityToDelete);
+        return 'Delete successfull';
     }
 };
 FamilleService = __decorate([

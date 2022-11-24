@@ -19,15 +19,17 @@ export class FamilleService {
     return this.familleRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} famille`;
+  async findOne(idInput: string) {
+    return await from(this.familleRepository.findOne({where:{id:idInput}})) ?? null;
   }
 
   update(id: number, updateFamilleDto: UpdateFamilleDto) {
     return `This action updates a #${id} famille`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} famille`;
+  async remove(idInput: string) {
+    const entityToDelete = await this.familleRepository.findOne({where: {id: idInput}})
+    this.familleRepository.remove(entityToDelete)
+    return 'Delete successfull';
   }
 }

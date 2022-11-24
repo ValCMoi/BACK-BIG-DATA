@@ -8,7 +8,7 @@ export declare class FamilleService {
     constructor(familleRepository: Repository<Famille>);
     create(createFamilleDto: CreateFamilleDto): Promise<Observable<Famille>>;
     findAll(): Promise<Famille[]>;
-    findOne(id: number): string;
+    findOne(idInput: string): Promise<Observable<Famille>>;
     update(id: number, updateFamilleDto: UpdateFamilleDto): string;
-    remove(id: number): string;
+    remove(idInput: string): Promise<string>;
 }
