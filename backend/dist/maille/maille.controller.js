@@ -28,13 +28,13 @@ let MailleController = class MailleController {
         return this.mailleService.findAll();
     }
     findOne(id) {
-        return this.mailleService.findOne(+id);
+        return this.mailleService.findOne(id);
     }
     update(id, updateMailleDto) {
         return this.mailleService.update(+id, updateMailleDto);
     }
     remove(id) {
-        return this.mailleService.remove(+id);
+        return this.mailleService.remove(id);
     }
 };
 __decorate([

@@ -7,10 +7,11 @@ import { Rate } from 'src/rate/entities/rate.entity';
 import { Client } from 'src/client/entities/client.entity';
 import { Famille } from 'src/famille/entities/famille.entity';
 import { Univer } from 'src/univers/entities/univer.entity';
+import { Maille } from 'src/maille/entities/maille.entity';
 
 @Module({
   imports:[
-    TypeOrmModule.forFeature([Product, Rate, Client, Famille, Univer])
+    TypeOrmModule.forFeature([Product, Rate, Client, Famille, Univer, Maille])
   ],
   controllers: [ProductController],
   providers: [ProductService]

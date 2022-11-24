@@ -29,7 +29,9 @@ export class UniversService {
     return `This action updates a #${id} univer`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} univer`;
+  async remove(idInput: string) {
+    const entityToDelete = await this.universRepository.findOne({where: {id: idInput}})
+    this.universRepository.remove(entityToDelete)
+    return 'Delete successfull';
   }
 }

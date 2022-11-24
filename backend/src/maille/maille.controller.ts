@@ -19,7 +19,7 @@ export class MailleController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.mailleService.findOne(+id);
+    return this.mailleService.findOne(id);
   }
 
   @Patch(':id')
@@ -29,6 +29,6 @@ export class MailleController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.mailleService.remove(+id);
+    return this.mailleService.remove(id);
   }
 }

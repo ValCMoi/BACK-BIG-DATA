@@ -17,14 +17,16 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const rxjs_1 = require("rxjs");
 const famille_entity_1 = require("../famille/entities/famille.entity");
+const maille_entity_1 = require("../maille/entities/maille.entity");
 const univer_entity_1 = require("../univers/entities/univer.entity");
 const typeorm_2 = require("typeorm");
 const product_entity_1 = require("./entities/product.entity");
 let ProductService = class ProductService {
-    constructor(productRepository, familleRepository, universRepository) {
+    constructor(productRepository, familleRepository, universRepository, mailleRepository) {
         this.productRepository = productRepository;
         this.familleRepository = familleRepository;
         this.universRepository = universRepository;
+        this.mailleRepository = mailleRepository;
     }
     async create(createProductDto) {
         const newProduct = new product_entity_1.Product();
@@ -32,6 +34,7 @@ let ProductService = class ProductService {
         newProduct.price = createProductDto.price;
         newProduct.famille = createProductDto.familleId ? await this.familleRepository.findOne({ where: { id: createProductDto.familleId } }) : null;
         newProduct.univers = createProductDto.universId ? await this.universRepository.findOne({ where: { id: createProductDto.universId } }) : null;
+        newProduct.maille = createProductDto.mailleId ? await this.mailleRepository.findOne({ where: { id: createProductDto.mailleId } }) : null;
         return (0, rxjs_1.from)(this.productRepository.save(newProduct));
     }
     findAll() {
@@ -56,7 +59,9 @@ ProductService = __decorate([
     __param(0, (0, typeorm_1.InjectRepository)(product_entity_1.Product)),
     __param(1, (0, typeorm_1.InjectRepository)(famille_entity_1.Famille)),
     __param(2, (0, typeorm_1.InjectRepository)(univer_entity_1.Univer)),
+    __param(3, (0, typeorm_1.InjectRepository)(maille_entity_1.Maille)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository])
 ], ProductService);

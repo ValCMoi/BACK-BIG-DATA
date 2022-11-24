@@ -1,5 +1,6 @@
 import { Categorie } from "src/abstract/categorie";
 import { Famille } from "src/famille/entities/famille.entity";
+import { Maille } from "src/maille/entities/maille.entity";
 import { Rate } from "src/rate/entities/rate.entity";
 import { Univer } from "src/univers/entities/univer.entity";
 import { Column, Entity, Generated, JoinColumn, ManyToOne, OneToMany, PrimaryColumn } from "typeorm";
@@ -24,4 +25,7 @@ export class Product {
 
     @ManyToOne(() => Univer, (univers: Univer) => univers.products)
     univers: Univer
+
+    @ManyToOne(() => Maille, (maille: Maille) => maille.products)
+    maille: Maille
 }

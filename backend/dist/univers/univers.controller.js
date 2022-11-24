@@ -34,7 +34,7 @@ let UniversController = class UniversController {
         return this.universService.update(+id, updateUniverDto);
     }
     remove(id) {
-        return this.universService.remove(+id);
+        return this.universService.remove(id);
     }
 };
 __decorate([

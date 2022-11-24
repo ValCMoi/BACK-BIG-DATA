@@ -29,6 +29,6 @@ export class UniversController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.universService.remove(+id);
+    return this.universService.remove(id);
   }
 }

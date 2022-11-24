@@ -3,4 +3,5 @@ export class CreateProductDto {
     readonly price: number;
     readonly familleId?: string
     readonly universId?: string
+    readonly mailleId?: string
 }

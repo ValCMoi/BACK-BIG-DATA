@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Product = void 0;
 const famille_entity_1 = require("../../famille/entities/famille.entity");
+const maille_entity_1 = require("../../maille/entities/maille.entity");
 const rate_entity_1 = require("../../rate/entities/rate.entity");
 const univer_entity_1 = require("../../univers/entities/univer.entity");
 const typeorm_1 = require("typeorm");
@@ -41,6 +42,10 @@ __decorate([
     (0, typeorm_1.ManyToOne)(() => univer_entity_1.Univer, (univers) => univers.products),
     __metadata("design:type", univer_entity_1.Univer)
 ], Product.prototype, "univers", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => maille_entity_1.Maille, (maille) => maille.products),
+    __metadata("design:type", maille_entity_1.Maille)
+], Product.prototype, "maille", void 0);
 Product = __decorate([
     (0, typeorm_1.Entity)()
 ], Product);

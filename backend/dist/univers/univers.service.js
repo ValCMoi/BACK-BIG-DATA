@@ -34,8 +34,10 @@ let UniversService = class UniversService {
     update(id, updateUniverDto) {
         return `This action updates a #${id} univer`;
     }
-    remove(id) {
-        return `This action removes a #${id} univer`;
+    async remove(idInput) {
+        const entityToDelete = await this.universRepository.findOne({ where: { id: idInput } });
+        this.universRepository.remove(entityToDelete);
+        return 'Delete successfull';
     }
 };
 UniversService = __decorate([

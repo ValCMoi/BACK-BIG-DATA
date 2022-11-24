@@ -1,5 +1,6 @@
 import { Observable } from 'rxjs';
 import { Famille } from 'src/famille/entities/famille.entity';
+import { Maille } from 'src/maille/entities/maille.entity';
 import { Univer } from 'src/univers/entities/univer.entity';
 import { Repository } from 'typeorm';
 import { CreateProductDto } from './dto/create-product.dto';
@@ -9,7 +10,8 @@ export declare class ProductService {
     private readonly productRepository;
     private readonly familleRepository;
     private readonly universRepository;
-    constructor(productRepository: Repository<Product>, familleRepository: Repository<Famille>, universRepository: Repository<Univer>);
+    private readonly mailleRepository;
+    constructor(productRepository: Repository<Product>, familleRepository: Repository<Famille>, universRepository: Repository<Univer>, mailleRepository: Repository<Maille>);
     create(createProductDto: CreateProductDto): Promise<Observable<Product>>;
     findAll(): Observable<Product[]>;
     findOne(idInput: string): Observable<Product>;

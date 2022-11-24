@@ -10,5 +10,5 @@ export declare class UniversService {
     findAll(): Promise<Observable<Univer[]>>;
     findOne(id: number): string;
     update(id: number, updateUniverDto: UpdateUniverDto): string;
-    remove(id: number): string;
+    remove(idInput: string): Promise<string>;
 }

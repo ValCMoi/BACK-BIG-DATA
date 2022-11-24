@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { from, fromEvent, Observable } from 'rxjs';
 import { Famille } from 'src/famille/entities/famille.entity';
+import { Maille } from 'src/maille/entities/maille.entity';
 import { Univer } from 'src/univers/entities/univer.entity';
 import { IsNull, Repository } from 'typeorm';
 import { CreateProductDto } from './dto/create-product.dto';
@@ -17,7 +18,9 @@ export class ProductService {
     @InjectRepository(Famille)
     private readonly familleRepository: Repository<Famille>,
     @InjectRepository(Univer)
-    private readonly universRepository: Repository<Univer>
+    private readonly universRepository: Repository<Univer>,
+    @InjectRepository(Maille)
+    private readonly mailleRepository: Repository<Maille>
   ){}
 
 
@@ -28,6 +31,7 @@ export class ProductService {
     newProduct.price = createProductDto.price
     newProduct.famille = createProductDto.familleId ? await this.familleRepository.findOne({where:{id : createProductDto.familleId}}) : null
     newProduct.univers = createProductDto.universId ? await this.universRepository.findOne({where:{id : createProductDto.universId}}) : null
+    newProduct.maille = createProductDto.mailleId ? await this.mailleRepository.findOne({where:{id : createProductDto.mailleId}}) : null
     
     return from(this.productRepository.save(newProduct));
   }

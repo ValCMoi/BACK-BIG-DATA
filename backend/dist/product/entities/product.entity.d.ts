@@ -1,4 +1,5 @@
 import { Famille } from "src/famille/entities/famille.entity";
+import { Maille } from "src/maille/entities/maille.entity";
 import { Rate } from "src/rate/entities/rate.entity";
 import { Univer } from "src/univers/entities/univer.entity";
 export declare class Product {
@@ -8,4 +9,5 @@ export declare class Product {
     rates: Rate[];
     famille: Famille;
     univers: Univer;
+    maille: Maille;
 }

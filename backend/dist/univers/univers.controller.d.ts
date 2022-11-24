@@ -8,5 +8,5 @@ export declare class UniversController {
     findAll(): Promise<import("rxjs").Observable<import("./entities/univer.entity").Univer[]>>;
     findOne(id: string): string;
     update(id: string, updateUniverDto: UpdateUniverDto): string;
-    remove(id: string): string;
+    remove(id: string): Promise<string>;
 }
