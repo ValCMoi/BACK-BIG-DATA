@@ -9,6 +9,7 @@ import { ClientModule } from './client/client.module';
 import { ProductModule } from './product/product.module';
 import { RateModule } from './rate/rate.module';
 import { FamilleModule } from './famille/famille.module';
+import { UniversModule } from './univers/univers.module';
 
 const dotenv = require('dotenv');
 dotenv.config()
@@ -35,6 +36,7 @@ console.table(configConnectionDB)
     ProductModule,
     RateModule,
     FamilleModule,
+    UniversModule,
     ],
   controllers: [AppController],
   providers: [AppService],
