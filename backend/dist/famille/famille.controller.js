@@ -31,10 +31,10 @@ let FamilleController = class FamilleController {
         return this.familleService.findOne(id);
     }
     update(id, updateFamilleDto) {
-        return this.familleService.update(id, updateFamilleDto);
+        return this.familleService.update(+id, updateFamilleDto);
     }
     remove(id) {
-        return this.familleService.remove(+id);
+        return this.familleService.remove(id);
     }
 };
 __decorate([

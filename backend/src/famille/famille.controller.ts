@@ -24,11 +24,11 @@ export class FamilleController {
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateFamilleDto: UpdateFamilleDto) {
-    return this.familleService.update(id, updateFamilleDto);
+    return this.familleService.update(+id, updateFamilleDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.familleService.remove(+id);
+    return this.familleService.remove(id);
   }
 }
