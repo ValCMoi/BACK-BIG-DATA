@@ -1,2 +1,3 @@
-export declare class Univer {
+import { Categorie } from "src/abstract/categorie";
+export declare class Univer extends Categorie {
 }

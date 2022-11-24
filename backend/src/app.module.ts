@@ -10,6 +10,7 @@ import { ProductModule } from './product/product.module';
 import { RateModule } from './rate/rate.module';
 import { FamilleModule } from './famille/famille.module';
 import { UniversModule } from './univers/univers.module';
+import { MailleModule } from './maille/maille.module';
 
 const dotenv = require('dotenv');
 dotenv.config()
@@ -37,6 +38,7 @@ console.table(configConnectionDB)
     RateModule,
     FamilleModule,
     UniversModule,
+    MailleModule,
     ],
   controllers: [AppController],
   providers: [AppService],

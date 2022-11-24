@@ -1,4 +1,3 @@
-export declare class Famille {
-    readonly id: string;
-    readonly label: string;
+import { Categorie } from "src/abstract/categorie";
+export declare class Famille extends Categorie {
 }
