@@ -8,10 +8,11 @@ import { Client } from 'src/client/entities/client.entity';
 import { Famille } from 'src/famille/entities/famille.entity';
 import { Univer } from 'src/univers/entities/univer.entity';
 import { Maille } from 'src/maille/entities/maille.entity';
+import { Cart } from 'src/cart/entities/cart.entity';
 
 @Module({
   imports:[
-    TypeOrmModule.forFeature([Product, Rate, Client, Famille, Univer, Maille])
+    TypeOrmModule.forFeature([Product, Rate, Client, Famille, Univer, Maille, Cart])
   ],
   controllers: [ProductController],
   providers: [ProductService]

@@ -17,12 +17,13 @@ const client_entity_1 = require("../client/entities/client.entity");
 const famille_entity_1 = require("../famille/entities/famille.entity");
 const univer_entity_1 = require("../univers/entities/univer.entity");
 const maille_entity_1 = require("../maille/entities/maille.entity");
+const cart_entity_1 = require("../cart/entities/cart.entity");
 let ProductModule = class ProductModule {
 };
 ProductModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            typeorm_1.TypeOrmModule.forFeature([product_entity_1.Product, rate_entity_1.Rate, client_entity_1.Client, famille_entity_1.Famille, univer_entity_1.Univer, maille_entity_1.Maille])
+            typeorm_1.TypeOrmModule.forFeature([product_entity_1.Product, rate_entity_1.Rate, client_entity_1.Client, famille_entity_1.Famille, univer_entity_1.Univer, maille_entity_1.Maille, cart_entity_1.Cart])
         ],
         controllers: [product_controller_1.ProductController],
         providers: [product_service_1.ProductService]
