@@ -13,12 +13,13 @@ const univers_controller_1 = require("./univers.controller");
 const typeorm_1 = require("@nestjs/typeorm");
 const famille_entity_1 = require("../famille/entities/famille.entity");
 const univer_entity_1 = require("./entities/univer.entity");
+const maille_entity_1 = require("../maille/entities/maille.entity");
 let UniversModule = class UniversModule {
 };
 UniversModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            typeorm_1.TypeOrmModule.forFeature([univer_entity_1.Univer, famille_entity_1.Famille])
+            typeorm_1.TypeOrmModule.forFeature([univer_entity_1.Univer, famille_entity_1.Famille, maille_entity_1.Maille])
         ],
         controllers: [univers_controller_1.UniversController],
         providers: [univers_service_1.UniversService]

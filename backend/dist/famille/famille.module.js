@@ -12,12 +12,13 @@ const famille_service_1 = require("./famille.service");
 const famille_controller_1 = require("./famille.controller");
 const typeorm_1 = require("@nestjs/typeorm");
 const famille_entity_1 = require("./entities/famille.entity");
+const univer_entity_1 = require("../univers/entities/univer.entity");
 let FamilleModule = class FamilleModule {
 };
 FamilleModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            typeorm_1.TypeOrmModule.forFeature([famille_entity_1.Famille])
+            typeorm_1.TypeOrmModule.forFeature([famille_entity_1.Famille, univer_entity_1.Univer])
         ],
         controllers: [famille_controller_1.FamilleController],
         providers: [famille_service_1.FamilleService]

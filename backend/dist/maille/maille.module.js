@@ -10,10 +10,16 @@ exports.MailleModule = void 0;
 const common_1 = require("@nestjs/common");
 const maille_service_1 = require("./maille.service");
 const maille_controller_1 = require("./maille.controller");
+const typeorm_1 = require("@nestjs/typeorm");
+const univer_entity_1 = require("../univers/entities/univer.entity");
+const maille_entity_1 = require("./entities/maille.entity");
 let MailleModule = class MailleModule {
 };
 MailleModule = __decorate([
     (0, common_1.Module)({
+        imports: [
+            typeorm_1.TypeOrmModule.forFeature([univer_entity_1.Univer, maille_entity_1.Maille])
+        ],
         controllers: [maille_controller_1.MailleController],
         providers: [maille_service_1.MailleService]
     })
