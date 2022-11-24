@@ -16,14 +16,21 @@ exports.ProductService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const rxjs_1 = require("rxjs");
+const famille_entity_1 = require("../famille/entities/famille.entity");
 const typeorm_2 = require("typeorm");
 const product_entity_1 = require("./entities/product.entity");
 let ProductService = class ProductService {
-    constructor(productRepository) {
+    constructor(productRepository, familleRepository) {
         this.productRepository = productRepository;
+        this.familleRepository = familleRepository;
     }
-    create(createProductDto) {
-        return (0, rxjs_1.from)(this.productRepository.save(createProductDto));
+    async create(createProductDto) {
+        const newProduct = new product_entity_1.Product();
+        newProduct.name = createProductDto.name;
+        newProduct.price = createProductDto.price;
+        newProduct.famille = createProductDto.familleId ? await this.familleRepository.findOne({ where: { id: createProductDto.familleId } }) : null;
+        newProduct.univers = createProductDto.universId ? await this.familleRepository.findOne({ where: { id: createProductDto.universId } }) : null;
+        return (0, rxjs_1.from)(this.productRepository.save(newProduct));
     }
     findAll() {
         return (0, rxjs_1.from)(this.productRepository.find({ relations: { rates: true } }));
@@ -45,7 +52,9 @@ let ProductService = class ProductService {
 ProductService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_1.InjectRepository)(product_entity_1.Product)),
-    __metadata("design:paramtypes", [typeorm_2.Repository])
+    __param(1, (0, typeorm_1.InjectRepository)(famille_entity_1.Famille)),
+    __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository])
 ], ProductService);
 exports.ProductService = ProductService;
 //# sourceMappingURL=product.service.js.map

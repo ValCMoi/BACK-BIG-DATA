@@ -1,5 +1,7 @@
 import { Categorie } from "src/abstract/categorie";
-import { Column, Entity, Generated, PrimaryColumn } from "typeorm";
+import { Product } from "src/product/entities/product.entity";
+import { Column, Entity, Generated, OneToMany, PrimaryColumn } from "typeorm";
 
 @Entity()
-export class Famille extends Categorie{}
+export class Famille extends Categorie{
+}
