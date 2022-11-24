@@ -24,6 +24,7 @@ export class CartService {
     const newCart = new Cart()
 
     newCart.id = createCartDto.id
+    newCart.client = await this.clientRepository.findOne({where:{id:createCartDto.idClient}})
     newCart.month = createCartDto.month ?? 0
     newCart.products = await this.productRepository.find({where:{id:In(createCartDto.productsId)}})
 

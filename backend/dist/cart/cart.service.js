@@ -30,6 +30,7 @@ let CartService = class CartService {
         var _a;
         const newCart = new cart_entity_1.Cart();
         newCart.id = createCartDto.id;
+        newCart.client = await this.clientRepository.findOne({ where: { id: createCartDto.idClient } });
         newCart.month = (_a = createCartDto.month) !== null && _a !== void 0 ? _a : 0;
         newCart.products = await this.productRepository.find({ where: { id: (0, typeorm_2.In)(createCartDto.productsId) } });
         return (0, rxjs_1.from)(this.cartRepository.save(newCart));

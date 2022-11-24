@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Cart = void 0;
 const cart_abstract_1 = require("../../abstract/cart.abstract");
+const client_entity_1 = require("../../client/entities/client.entity");
 const product_entity_1 = require("../../product/entities/product.entity");
 const typeorm_1 = require("typeorm");
 let Cart = class Cart extends cart_abstract_1.CartAbstract {
@@ -20,6 +21,10 @@ __decorate([
     (0, typeorm_1.JoinTable)(),
     __metadata("design:type", Array)
 ], Cart.prototype, "products", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => client_entity_1.Client, (client) => client.carts),
+    __metadata("design:type", client_entity_1.Client)
+], Cart.prototype, "client", void 0);
 Cart = __decorate([
     (0, typeorm_1.Entity)()
 ], Cart);
