@@ -18,6 +18,8 @@ const rate_module_1 = require("./rate/rate.module");
 const famille_module_1 = require("./famille/famille.module");
 const univers_module_1 = require("./univers/univers.module");
 const maille_module_1 = require("./maille/maille.module");
+const cart_module_1 = require("./cart/cart.module");
+const consult_module_1 = require("./consult/consult.module");
 const dotenv = require('dotenv');
 dotenv.config();
 const configConnectionDB = {
@@ -45,6 +47,8 @@ AppModule = __decorate([
             famille_module_1.FamilleModule,
             univers_module_1.UniversModule,
             maille_module_1.MailleModule,
+            cart_module_1.CartModule,
+            consult_module_1.ConsultModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

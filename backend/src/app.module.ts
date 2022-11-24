@@ -11,6 +11,8 @@ import { RateModule } from './rate/rate.module';
 import { FamilleModule } from './famille/famille.module';
 import { UniversModule } from './univers/univers.module';
 import { MailleModule } from './maille/maille.module';
+import { CartModule } from './cart/cart.module';
+import { ConsultModule } from './consult/consult.module';
 
 const dotenv = require('dotenv');
 dotenv.config()
@@ -39,6 +41,8 @@ console.table(configConnectionDB)
     FamilleModule,
     UniversModule,
     MailleModule,
+    CartModule,
+    ConsultModule,
     ],
   controllers: [AppController],
   providers: [AppService],
