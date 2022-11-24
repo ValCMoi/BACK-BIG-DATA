@@ -9,17 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CartAbstract = void 0;
+exports.ActualCart = void 0;
+const cart_abstract_1 = require("../../abstract/cart.abstract");
+const client_entity_1 = require("../../client/entities/client.entity");
+const product_entity_1 = require("../../product/entities/product.entity");
 const typeorm_1 = require("typeorm");
-class CartAbstract {
-}
+let ActualCart = class ActualCart extends cart_abstract_1.CartAbstract {
+};
 __decorate([
-    (0, typeorm_1.PrimaryColumn)({ default: '' + Math.floor(Math.random() * 1000000000) }),
-    __metadata("design:type", String)
-], CartAbstract.prototype, "id", void 0);
+    (0, typeorm_1.OneToOne)(() => client_entity_1.Client),
+    (0, typeorm_1.JoinColumn)(),
+    __metadata("design:type", client_entity_1.Client)
+], ActualCart.prototype, "client", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ default: 0 }),
-    __metadata("design:type", Number)
-], CartAbstract.prototype, "month", void 0);
-exports.CartAbstract = CartAbstract;
-//# sourceMappingURL=cart.abstract.js.map
+    (0, typeorm_1.ManyToMany)(() => product_entity_1.Product),
+    (0, typeorm_1.JoinTable)(),
+    __metadata("design:type", Array)
+], ActualCart.prototype, "products", void 0);
+ActualCart = __decorate([
+    (0, typeorm_1.Entity)()
+], ActualCart);
+exports.ActualCart = ActualCart;
+//# sourceMappingURL=actual-cart.entity.js.map

@@ -20,6 +20,7 @@ const univers_module_1 = require("./univers/univers.module");
 const maille_module_1 = require("./maille/maille.module");
 const cart_module_1 = require("./cart/cart.module");
 const consult_module_1 = require("./consult/consult.module");
+const actual_cart_module_1 = require("./actual-cart/actual-cart.module");
 const dotenv = require('dotenv');
 dotenv.config();
 const configConnectionDB = {
@@ -49,6 +50,7 @@ AppModule = __decorate([
             maille_module_1.MailleModule,
             cart_module_1.CartModule,
             consult_module_1.ConsultModule,
+            actual_cart_module_1.ActualCartModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

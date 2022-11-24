@@ -13,6 +13,7 @@ import { UniversModule } from './univers/univers.module';
 import { MailleModule } from './maille/maille.module';
 import { CartModule } from './cart/cart.module';
 import { ConsultModule } from './consult/consult.module';
+import { ActualCartModule } from './actual-cart/actual-cart.module';
 
 const dotenv = require('dotenv');
 dotenv.config()
@@ -43,6 +44,7 @@ console.table(configConnectionDB)
     MailleModule,
     CartModule,
     ConsultModule,
+    ActualCartModule,
     ],
   controllers: [AppController],
   providers: [AppService],
