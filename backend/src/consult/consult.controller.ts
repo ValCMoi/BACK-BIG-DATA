@@ -19,7 +19,7 @@ export class ConsultController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.consultService.findOne(+id);
+    return this.consultService.findOne(id);
   }
 
   @Patch(':id')
@@ -29,6 +29,6 @@ export class ConsultController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.consultService.remove(+id);
+    return this.consultService.remove(id);
   }
 }

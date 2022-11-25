@@ -1,9 +1,18 @@
+import { Client } from 'src/client/entities/client.entity';
+import { Product } from 'src/product/entities/product.entity';
+import { Repository } from 'typeorm';
 import { CreateConsultDto } from './dto/create-consult.dto';
 import { UpdateConsultDto } from './dto/update-consult.dto';
+import { Consult } from './entities/consult.entity';
+import { Observable } from 'rxjs';
 export declare class ConsultService {
-    create(createConsultDto: CreateConsultDto): string;
-    findAll(): string;
-    findOne(id: number): string;
+    private readonly clientRepository;
+    private readonly productRepository;
+    private readonly consultRepository;
+    constructor(clientRepository: Repository<Client>, productRepository: Repository<Product>, consultRepository: Repository<Consult>);
+    create(createConsultDto: CreateConsultDto): Promise<Observable<Consult>>;
+    findAll(): Promise<Consult[]>;
+    findOne(idInput: string): Promise<Consult[]>;
     update(id: number, updateConsultDto: UpdateConsultDto): string;
-    remove(id: number): string;
+    remove(idInput: string): Promise<string>;
 }

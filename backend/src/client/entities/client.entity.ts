@@ -1,4 +1,5 @@
 import { Cart } from "src/cart/entities/cart.entity";
+import { Consult } from "src/consult/entities/consult.entity";
 import { Rate } from "src/rate/entities/rate.entity";
 import { Column, Entity, Generated, JoinColumn, OneToMany, PrimaryColumn } from "typeorm";
 
@@ -18,4 +19,7 @@ export class Client {
 
     @OneToMany(() => Cart, (cart) => cart.id)
     carts: Cart[]
+
+    @OneToMany(() => Consult, (consult) => consult.id)
+    consults: Consult[]
 }

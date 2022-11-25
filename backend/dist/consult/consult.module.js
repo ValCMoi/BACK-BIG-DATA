@@ -10,10 +10,18 @@ exports.ConsultModule = void 0;
 const common_1 = require("@nestjs/common");
 const consult_service_1 = require("./consult.service");
 const consult_controller_1 = require("./consult.controller");
+const typeorm_1 = require("@nestjs/typeorm");
+const client_entity_1 = require("../client/entities/client.entity");
+const cart_entity_1 = require("../cart/entities/cart.entity");
+const product_entity_1 = require("../product/entities/product.entity");
+const consult_entity_1 = require("./entities/consult.entity");
 let ConsultModule = class ConsultModule {
 };
 ConsultModule = __decorate([
     (0, common_1.Module)({
+        imports: [
+            typeorm_1.TypeOrmModule.forFeature([client_entity_1.Client, consult_entity_1.Consult, cart_entity_1.Cart, product_entity_1.Product])
+        ],
         controllers: [consult_controller_1.ConsultController],
         providers: [consult_service_1.ConsultService]
     })

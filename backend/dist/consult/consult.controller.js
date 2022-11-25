@@ -28,13 +28,13 @@ let ConsultController = class ConsultController {
         return this.consultService.findAll();
     }
     findOne(id) {
-        return this.consultService.findOne(+id);
+        return this.consultService.findOne(id);
     }
     update(id, updateConsultDto) {
         return this.consultService.update(+id, updateConsultDto);
     }
     remove(id) {
-        return this.consultService.remove(+id);
+        return this.consultService.remove(id);
     }
 };
 __decorate([
