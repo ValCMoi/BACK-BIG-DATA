@@ -4,7 +4,7 @@ import { Famille } from "src/famille/entities/famille.entity";
 import { Maille } from "src/maille/entities/maille.entity";
 import { Rate } from "src/rate/entities/rate.entity";
 import { Univer } from "src/univers/entities/univer.entity";
-import { Column, Entity, Generated, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryColumn } from "typeorm";
+import { Column, Entity, Generated, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryColumn } from 'typeorm';
 
 @Entity()
 export class Product {
