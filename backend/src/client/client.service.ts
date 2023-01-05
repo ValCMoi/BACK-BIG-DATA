@@ -36,6 +36,10 @@ export class ClientService {
     return await (this.repositoryClient.findOne({where:{id:idInput}})) ?? null;
   }
 
+  async findOneEmail(emailInput: string) : Promise<Client> | undefined{
+    return await (this.repositoryClient.findOne({where:{email:emailInput}})) ?? null;
+  }
+
   update(idInput: string, updateClientDto: UpdateClientDto){
     return from(this.repositoryClient.update(idInput, updateClientDto));
   }

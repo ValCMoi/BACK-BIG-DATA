@@ -11,6 +11,7 @@ import { Cart } from 'src/cart/entities/cart.entity';
   imports:[
     TypeOrmModule.forFeature([Client, Rate, Consult, Cart])
   ],
+  exports:[ClientModule, ClientService],
   controllers: [ClientController],
   providers: [ClientService]
 })

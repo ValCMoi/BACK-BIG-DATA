@@ -7,9 +7,9 @@ const crypt = require('../../utils/crypt/cryptDecrypt.js')
 export class AuthService {
   constructor(private clientService: ClientService) {}
 
-  async validateUser(username: string, pass: string): Promise<any> {
-    const client = await this.clientService.findOne(username);
-    if (client && client.password === crypt.encrypt(pass)) {
+  async validateUser(email: string, password: string): Promise<any> {
+    const client = await this.clientService.findOneEmail(email);
+    if (client && client.password === crypt.encrypt(password)) {
       const { password, ...result } = client;
       return result;
     }

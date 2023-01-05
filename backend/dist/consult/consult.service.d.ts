@@ -11,8 +11,8 @@ export declare class ConsultService {
     private readonly consultRepository;
     constructor(clientRepository: Repository<Client>, productRepository: Repository<Product>, consultRepository: Repository<Consult>);
     create(createConsultDto: CreateConsultDto): Promise<Observable<Consult>>;
-    findAll(): any;
-    findOne(idInput: string): any;
+    findAll(): Promise<Consult[]>;
+    findOne(idInput: string): Promise<Consult[]>;
     update(id: number, updateConsultDto: UpdateConsultDto): string;
     remove(idInput: string): Promise<string>;
 }

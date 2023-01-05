@@ -9,6 +9,7 @@ export declare class ClientService {
     create(createClientDto: CreateClientDto): Promise<Observable<Client>>;
     findAll(): Observable<Client[]>;
     findOne(idInput: string): Promise<Client> | undefined;
-    update(idInput: string, updateClientDto: UpdateClientDto): any;
+    findOneEmail(emailInput: string): Promise<Client> | undefined;
+    update(idInput: string, updateClientDto: UpdateClientDto): Observable<import("typeorm").UpdateResult>;
     remove(idInput: string): Promise<string>;
 }
