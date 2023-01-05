@@ -11,7 +11,7 @@ export declare class CartService {
     private readonly clientRepository;
     constructor(cartRepository: Repository<Cart>, productRepository: Repository<Product>, clientRepository: Repository<Client>);
     create(createCartDto: CreateCartDto): Promise<Observable<Cart>>;
-    findAll(): Promise<Cart[]>;
+    findAll(): any;
     findOne(id: number): string;
     update(id: number, updateCartDto: UpdateCartDto): string;
     remove(id: number): string;

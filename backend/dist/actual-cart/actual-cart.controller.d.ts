@@ -4,7 +4,7 @@ import { UpdateActualCartDto } from './dto/update-actual-cart.dto';
 export declare class ActualCartController {
     private readonly actualCartService;
     constructor(actualCartService: ActualCartService);
-    create(createActualCartDto: CreateActualCartDto): Promise<import("rxjs").Observable<import("./entities/actual-cart.entity").ActualCart>>;
+    create(createActualCartDto: CreateActualCartDto): Promise<Observable<import("./entities/actual-cart.entity").ActualCart>>;
     findAll(): string;
     findOne(id: string): string;
     update(id: string, updateActualCartDto: UpdateActualCartDto): string;

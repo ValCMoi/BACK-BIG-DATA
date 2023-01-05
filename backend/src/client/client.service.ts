@@ -32,8 +32,8 @@ export class ClientService {
     return from(this.repositoryClient.find());
   }
 
-  async findOne(idInput: string) {
-    return await from(this.repositoryClient.findOne({where:{id:idInput}})) ?? null;
+  async findOne(idInput: string) : Promise<Client> | undefined{
+    return await (this.repositoryClient.findOne({where:{id:idInput}})) ?? null;
   }
 
   update(idInput: string, updateClientDto: UpdateClientDto){

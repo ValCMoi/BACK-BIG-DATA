@@ -14,6 +14,8 @@ import { MailleModule } from './maille/maille.module';
 import { CartModule } from './cart/cart.module';
 import { ConsultModule } from './consult/consult.module';
 import { ActualCartModule } from './actual-cart/actual-cart.module';
+import { AuthService } from './auth/auth.service';
+import { AuthModule } from './auth/auth.module';
 
 const dotenv = require('dotenv');
 dotenv.config()
@@ -45,8 +47,9 @@ console.table(configConnectionDB)
     CartModule,
     ConsultModule,
     ActualCartModule,
+    AuthModule,
     ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, AuthService],
 })
 export class AppModule {}

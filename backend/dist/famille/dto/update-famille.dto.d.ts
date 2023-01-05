@@ -1,5 +1,4 @@
-import { CreateFamilleDto } from './create-famille.dto';
-declare const UpdateFamilleDto_base: import("@nestjs/common").Type<Partial<CreateFamilleDto>>;
+declare const UpdateFamilleDto_base: any;
 export declare class UpdateFamilleDto extends UpdateFamilleDto_base {
 }
 export {};

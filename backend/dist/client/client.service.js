@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ClientService = void 0;
 const common_1 = require("@nestjs/common");
@@ -41,7 +42,7 @@ let ClientService = class ClientService {
     }
     async findOne(idInput) {
         var _a;
-        return (_a = await (0, rxjs_1.from)(this.repositoryClient.findOne({ where: { id: idInput } }))) !== null && _a !== void 0 ? _a : null;
+        return (_a = await (this.repositoryClient.findOne({ where: { id: idInput } }))) !== null && _a !== void 0 ? _a : null;
     }
     update(idInput, updateClientDto) {
         return (0, rxjs_1.from)(this.repositoryClient.update(idInput, updateClientDto));
@@ -55,7 +56,7 @@ let ClientService = class ClientService {
 ClientService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_1.InjectRepository)(client_entity_1.Client)),
-    __metadata("design:paramtypes", [typeorm_2.Repository])
+    __metadata("design:paramtypes", [typeof (_a = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _a : Object])
 ], ClientService);
 exports.ClientService = ClientService;
 //# sourceMappingURL=client.service.js.map

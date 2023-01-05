@@ -15,6 +15,6 @@ export declare class ProductService {
     create(createProductDto: CreateProductDto): Promise<Observable<Product>>;
     findAll(): Observable<Product[]>;
     findOne(idInput: string): Observable<Product>;
-    update(idInput: string, updateProductDto: UpdateProductDto): Promise<import("typeorm").UpdateResult>;
-    remove(idInput: string): Promise<Product | "Error not data found to delete">;
+    update(idInput: string, updateProductDto: UpdateProductDto): any;
+    remove(idInput: string): Promise<any>;
 }

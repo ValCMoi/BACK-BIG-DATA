@@ -1,5 +1,4 @@
-import { CreateUniverDto } from './create-univer.dto';
-declare const UpdateUniverDto_base: import("@nestjs/common").Type<Partial<CreateUniverDto>>;
+declare const UpdateUniverDto_base: any;
 export declare class UpdateUniverDto extends UpdateUniverDto_base {
 }
 export {};

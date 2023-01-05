@@ -11,8 +11,8 @@ export declare class RateService {
     private readonly productRepository;
     constructor(rateRepository: Repository<Rate>, clientRepository: Repository<Client>, productRepository: Repository<Product>);
     create(createRateDto: CreateRateDto): Promise<Observable<Rate>>;
-    findAll(): Promise<Rate[]>;
-    findOne(idInput: string): Promise<Rate>;
-    update(idInput: string, updateRateDto: UpdateRateDto): Promise<Observable<Rate>>;
+    findAll(): any;
+    findOne(idInput: string): any;
+    update(idInput: string, updateRateDto: UpdateRateDto): Promise<any>;
     remove(idInput: string): Promise<string>;
 }

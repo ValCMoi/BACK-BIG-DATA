@@ -1,5 +1,4 @@
-import { CreateRateDto } from './create-rate.dto';
-declare const UpdateRateDto_base: import("@nestjs/common").Type<Partial<CreateRateDto>>;
+declare const UpdateRateDto_base: any;
 export declare class UpdateRateDto extends UpdateRateDto_base {
 }
 export {};
