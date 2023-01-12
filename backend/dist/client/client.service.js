@@ -45,6 +45,8 @@ let ClientService = class ClientService {
     }
     async findOneEmail(emailInput) {
         var _a;
+        console.log("Param : ", emailInput);
+        console.log(this.repositoryClient.findOne({ where: { email: emailInput } }));
         return (_a = await (this.repositoryClient.findOne({ where: { email: emailInput } }))) !== null && _a !== void 0 ? _a : null;
     }
     update(idInput, updateClientDto) {

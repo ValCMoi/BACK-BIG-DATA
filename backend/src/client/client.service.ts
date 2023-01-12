@@ -37,6 +37,8 @@ export class ClientService {
   }
 
   async findOneEmail(emailInput: string) : Promise<Client> | undefined{
+    console.log("Param : ",emailInput)
+    console.log(this.repositoryClient.findOne({where:{email:emailInput}}))
     return await (this.repositoryClient.findOne({where:{email:emailInput}})) ?? null;
   }
 
