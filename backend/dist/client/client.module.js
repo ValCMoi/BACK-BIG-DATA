@@ -5,6 +5,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var ClientModule_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ClientModule = void 0;
 const common_1 = require("@nestjs/common");
@@ -15,13 +16,14 @@ const typeorm_1 = require("@nestjs/typeorm");
 const rate_entity_1 = require("../rate/entities/rate.entity");
 const consult_entity_1 = require("../consult/entities/consult.entity");
 const cart_entity_1 = require("../cart/entities/cart.entity");
-let ClientModule = class ClientModule {
+let ClientModule = ClientModule_1 = class ClientModule {
 };
-ClientModule = __decorate([
+ClientModule = ClientModule_1 = __decorate([
     (0, common_1.Module)({
         imports: [
             typeorm_1.TypeOrmModule.forFeature([client_entity_1.Client, rate_entity_1.Rate, consult_entity_1.Consult, cart_entity_1.Cart])
         ],
+        exports: [ClientModule_1, client_service_1.ClientService],
         controllers: [client_controller_1.ClientController],
         providers: [client_service_1.ClientService]
     })

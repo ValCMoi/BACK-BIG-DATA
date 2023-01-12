@@ -21,6 +21,8 @@ const maille_module_1 = require("./maille/maille.module");
 const cart_module_1 = require("./cart/cart.module");
 const consult_module_1 = require("./consult/consult.module");
 const actual_cart_module_1 = require("./actual-cart/actual-cart.module");
+const auth_service_1 = require("./auth/auth.service");
+const auth_module_1 = require("./auth/auth.module");
 const dotenv = require('dotenv');
 dotenv.config();
 const configConnectionDB = {
@@ -51,9 +53,10 @@ AppModule = __decorate([
             cart_module_1.CartModule,
             consult_module_1.ConsultModule,
             actual_cart_module_1.ActualCartModule,
+            auth_module_1.AuthModule,
         ],
         controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
+        providers: [app_service_1.AppService, auth_service_1.AuthService],
     })
 ], AppModule);
 exports.AppModule = AppModule;
